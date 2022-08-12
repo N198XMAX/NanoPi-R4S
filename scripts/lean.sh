@@ -116,12 +116,12 @@ sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
+# Test kernel 5.10
+sed -i 's/5.19/5.15/g' target/linux/rockchip/Makefile
+
 # Modify default password none
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
-
-# Test kernel 5.10
-#sed -i 's/5.15/5.19/g' target/linux/rockchip/Makefile
 
 # Custom configs
 
