@@ -122,7 +122,6 @@ sed -i 's/5.19/5.15/g' target/linux/rockchip/Makefile
 # Modify default password none
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
-
 # Custom configs
 
 echo -e " Lean's OpenWrt built on "$(date +%Y.%m.%d)"\n -----------------------------------------------------" >> package/base-files/files/etc/banner
