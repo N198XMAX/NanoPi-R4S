@@ -247,15 +247,7 @@ jobs:
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
 
-      - name: Build & Push Docker Image To Dockerhub
-        run: |
-          cd openwrt/bin/targets/$TARGET/$SUBTARGET/
-          docker import openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-rootfs.tar.gz ${{ secrets.DOCKERHUB_USERNAME }}/openwrt:lean
-          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/openwrt:lean
-          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/openwrt:lean ${{ secrets.DOCKERHUB_USERNAME }}/openwrt:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/openwrt:latest
-
+      
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
         with:
@@ -269,7 +261,7 @@ jobs:
           keep_latest: 3
           delete_tags: true
         env:
-          GITHUB_TOKEN: ${{ secrets.RELEASES_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Delete Artifacts
         uses: geekyeggo/delete-artifact@v2
