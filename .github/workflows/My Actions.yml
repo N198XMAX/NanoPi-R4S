@@ -354,7 +354,7 @@ jobs:
 
       env:
 
-        GITHUB_TOKEN: ${{ secrets.RELEASES_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Delete Artifacts
 
